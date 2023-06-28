@@ -4,6 +4,8 @@ function multipleChoiceQuiz (title, choices, correct) {
     this.correct = correct;
 }
 
+// Set Variables for quiz questions --------------------
+
 var questions = [
     new multipleChoiceQuiz("Commonly used data types DO NOT include:", ["strings", "booleans", "alerts", "numbers"], "alerts"),
     new multipleChoiceQuiz("The condition in an if / else statement is enclosed within ____.", ["quotes", "curly brackets", "parentheses", "square brackets"], "parentheses"),
@@ -21,11 +23,15 @@ var finalScore = document.getElementById("finalScore");
 var submitButton = document.getElementsByClassName("submitScore");
 var highScores = document.getElementsByClassName("highScores");
 
+// Set Variables for quiz progress --------------------
+
 var currentQuestion = 0;
 var score = 0;
 var timer;
 var interval;
 var newScore;
+
+// Set Functions for quiz progress --------------------
 
 function startQuiz (event) {
     event.preventDefault();
@@ -72,6 +78,7 @@ function checkAnswer (event) {
     nextQuestion();
 }
 
+// Set Functions for quiz end and score display --------------------
 
 function endQuiz () {
     clearInterval(interval);
