@@ -77,6 +77,7 @@ function endQuiz () {
     clearInterval(interval);
     document.getElementById("quizBox").style.display = "none";
     document.getElementById("endBox").style.display = "flex";
+    document.getElementById("scoreBox").style.display = "flex";
     document.getElementById("highScoreBox").style.display = "flex";
     document.getElementById("finalScore").innerHTML = score;
     submitButton.addEventListener("click", saveScore);
