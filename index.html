@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="topBar">
-        <div class="highscores"><a href="highscoresPage">View Highscores</a></div>
+        <div id="highscores"><a href="javascript:viewHighScores()">View Highscores</a></div>
         <div id="timer">Time: 0</div>
     </div>
     <div id="startBox">
@@ -30,16 +30,21 @@
     </div>
     <div id="endBox">
         <div id="endMessage">All done!</div>
-        <div id="highScoreBox">
+        <div id="scoreInput">
             <div class="highScoreMessage">Enter initials:</div>
             <input type="text" id="initials" placeholder="Enter initials">
-            <button class="submitScore">Submit</button>
+            <button id="submitScore">Submit</button>
         </div>
     </div>
     <div id="scoreBox">
-        <div class="scoreMessage">Your final score is <span id="score"></span>.</div>
-        <button class="goBack">Go Back</button>
-        <button class="clearHighscores">Clear Highscores</button>
+        <div id="scoreMessage">Your final score is <span id="score"></span>.</div>
+        <button id="goBack">Go Back</button>
+    </div>
+    <div id="highscoreBox">
+        <div id="highScoreMessage">Highscores</div>
+        <div id="highScoreList"></div>
+        <button id="clearHighScores">Clear Highscores</button>
+        <button id="goBack1">Go Back</button>
     </div>
     <script src="assets\js\script.js"></script>
 </body>

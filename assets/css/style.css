@@ -7,7 +7,7 @@
     flex: 50%;
 }
 
-.highscores a {
+#highscores a {
     text-decoration: none;
     color: blueviolet;
     text-align: start;
@@ -164,6 +164,7 @@
     display: none;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 200px;
 }
 
@@ -195,8 +196,9 @@
 #highscoreBox {
     display: none;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 500px;
 }
 
 #highscoreBox h1 {
@@ -252,7 +254,8 @@
     align-items: center;
 }
 
-#scoreBox h1 {
+#scoreMessage  {
+    padding: 20px;
     font-size: 25px;
 }
 
@@ -263,6 +266,7 @@
 }
 
 #scoreBox button {
+    margin: 10px;
     width: 200px;
     height: 50px;
     border-radius: 10px;
@@ -290,6 +294,14 @@
 #answer3,
 #answer4 {
     margin: 5px;
+}
+
+#viewHighscores {
+    display: none;
+}
+
+#viewHighscores:hover {
+    background-color: #ff0000;
 }
 
 

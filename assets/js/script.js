@@ -20,8 +20,11 @@ var quizBox = document.getElementsByClassName("quizBox");
 var endBox = document.getElementsByClassName("endBox");
 var initials = document.getElementsByClassName("initials");
 var finalScore = document.getElementById("finalScore");
-var submitButton = document.getElementsByClassName("submitScore");
-var highScores = document.getElementsByClassName("highScores");
+var submitButton = document.getElementById("submitScore");
+var highScores = document.getElementById("highscores");
+var clearHighScoresButton = document.getElementById("clearHighScores");
+var goBackButton = document.getElementById("goBack");
+var goBackButton1 = document.getElementById("goBack1");
 
 // Set Variables for quiz progress --------------------
 
@@ -85,9 +88,10 @@ function endQuiz () {
     document.getElementById("quizBox").style.display = "none";
     document.getElementById("endBox").style.display = "flex";
     document.getElementById("scoreBox").style.display = "flex";
-    document.getElementById("highScoreBox").style.display = "flex";
-    document.getElementById("finalScore").innerHTML = score;
+    document.getElementById("scoreInput").style.display = "block";
+    document.getElementById("score").innerHTML = score;
     submitButton.addEventListener("click", saveScore);
+    
 }
 
 function saveScore (event) {
@@ -100,19 +104,35 @@ function saveScore (event) {
     };
     highScores.push(newScore);
     localStorage.setItem("highScores", JSON.stringify(highScores));
-    window.location.href = "highscores.html";
     document.getElementById("scoreBox").style.display = "flex";
+    var submitMessage = document.createElement("p");
+    var submitText = document.createTextNode("Score saved!");
+    submitMessage.appendChild(submitText);
+    document.getElementById("scoreBox").appendChild(submitMessage);
+    
+
 }
 
 function viewHighScores (event) {
-    event.preventDefault();
-    window.location.href = "highscores.html";
+    localStorage.getItem("highScores");
+    document.getElementById("startBox").style.display = "none";
+    document.getElementById("quizBox").style.display = "none";
+    document.getElementById("endBox").style.display = "none";
+    document.getElementById("scoreBox").style.display = "none";
+    document.getElementById("highscoreBox").style.display = "block";
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    for (var i = 0; i < highScores.length; i++) {
+        var scoreList = document.createElement("li");
+        var scoreText = document.createTextNode(highScores[i].initials + ": " + highScores[i].score);
+        scoreList.appendChild(scoreText);
+        document.getElementById("highScoreList").appendChild(scoreList);
+    }
 }
 
 function clearHighScores (event) {
     event.preventDefault();
     localStorage.clear();
-    document.getElementById("highScores").innerHTML = "";
+    document.getElementById("highScoreList").innerHTML = "";
 }
 
 function goBack (event) {
@@ -120,4 +140,14 @@ function goBack (event) {
     window.location.href = "index.html";
 }
 
+function goBack1 (event) {
+    event.preventDefault();
+    window.location.href = "index.html";
+}
+
 startButton[0].addEventListener("click", startQuiz);
+highScores.addEventListener("click", viewHighScores);
+clearHighScoresButton.addEventListener("click", clearHighScores);
+goBackButton.addEventListener("click", goBack);
+goBackButton1.addEventListener("click", goBack1);
+
