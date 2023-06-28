@@ -16,25 +16,16 @@ var startButton = document.getElementsByClassName("startButton");
 var startBox = document.getElementsByClassName("startBox");
 var quizBox = document.getElementsByClassName("quizBox");
 var endBox = document.getElementsByClassName("endBox");
-var highScores = document.getElementsByClassName("highScores");
 var initials = document.getElementsByClassName("initials");
-var timer = document.getElementById("timer");
-var question = document.getElementById("question");
-var answer1 = document.getElementById("answer1");
-var answer2 = document.getElementById("answer2");
-var answer3 = document.getElementById("answer3");
-var answer4 = document.getElementById("answer4");
-var score = document.getElementById("score");
 var finalScore = document.getElementById("finalScore");
-var submitButton = document.getElementsByClassName("submitButton");
+var submitButton = document.getElementsByClassName("submitScore");
 var highScores = document.getElementsByClassName("highScores");
-var clearButton = document.getElementsByClassName("clearButton");
-var goBackButton = document.getElementsByClassName("goBackButton");
 
 var currentQuestion = 0;
 var score = 0;
 var timer;
 var interval;
+var newScore;
 
 function startQuiz (event) {
     event.preventDefault();
@@ -62,6 +53,11 @@ function nextQuestion () {
     } else {
         endQuiz();
     }
+    answer1.addEventListener("click", checkAnswer);
+    answer2.addEventListener("click", checkAnswer);
+    answer3.addEventListener("click", checkAnswer);
+    answer4.addEventListener("click", checkAnswer);
+    
 }
 
 function checkAnswer (event) {
@@ -76,11 +72,14 @@ function checkAnswer (event) {
     nextQuestion();
 }
 
+
 function endQuiz () {
     clearInterval(interval);
     document.getElementById("quizBox").style.display = "none";
-    document.getElementById("endBox").style.display = "block";
+    document.getElementById("endBox").style.display = "flex";
+    document.getElementById("highScoreBox").style.display = "flex";
     document.getElementById("finalScore").innerHTML = score;
+    submitButton.addEventListener("click", saveScore);
 }
 
 function saveScore (event) {
@@ -94,6 +93,7 @@ function saveScore (event) {
     highScores.push(newScore);
     localStorage.setItem("highScores", JSON.stringify(highScores));
     window.location.href = "highscores.html";
+    document.getElementById("scoreBox").style.display = "flex";
 }
 
 function viewHighScores (event) {

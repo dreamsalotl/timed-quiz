@@ -160,8 +160,40 @@
     background-color: #ff0000;
 }
 
+#endBox {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+}
+
+#endBox h1 {
+    font-size: 25px;
+}
+
+#endBox p {
+    text-align: center;
+    font-size: 20px;
+    width: 500px;
+}
+
+#endBox button {
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: blueviolet;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#endBox button:hover {
+    background-color: #ff0000;
+}
+
 #highscoreBox {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     height: 90vh;
@@ -211,6 +243,10 @@
 
 #highscoreBox tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+#scoreBox {
+    display: none;
 }
 
 #answerBox {
