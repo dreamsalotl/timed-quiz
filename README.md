@@ -6,7 +6,7 @@ This webpage displays a short, timed quiz that tests your knowledge of programmi
 
 ## Installation
 
-N/A
+No intallation necessary, just follow this link! => https://dreamsalotl.github.io/timed-quiz/index.html
 
 ## Usage
 
